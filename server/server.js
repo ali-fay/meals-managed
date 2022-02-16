@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //if i un-comment this, I do get 'hello there' on my 3000/ landing page
-app.get('/', mealsController.getMeals, (req, res) => {
-  return res.status(200).send(res.locals);
+app.get('/', (req, res) => {
+  return res.status(200).send('hello, there!');
 })
 
 //handles requests for static files
