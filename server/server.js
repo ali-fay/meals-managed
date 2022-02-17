@@ -11,22 +11,28 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+//handles requests for static files
+//app.use(express.static(path.resolve(__dirname, './index.html')));
+app.use(express.static(path.resolve(__dirname, './client')));
+
+//route to serve the html file  --> I don't know if we actually need this b/c we are handling requests for static files in line 28&29?
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/index.html'))
+})
 //if i un-comment this, I do get 'hello there' on my 3000/ landing page
-app.get('/', mealsController.getMeals, (req, res) => {
+app.get('/api', mealsController.getMeals, (req, res) => {
   return res.status(200).send(res.locals.meals);
 })
 
-app.post('/', mealsController.addMeals, (req, res) => {
-  return res.status(200).send('your data was inserted!');
+app.post('/api', mealsController.addMeals, (req, res) => {
+  console.log('your data was inserted!');
+  return res.status(200).send(res.locals.meals);
 })
 
-//handles requests for static files
-app.use(express.static(path.resolve(__dirname, '../client')));
-
-//route to serve the html file  --> I don't think we actually need this because we don't need to serve an html file to our express server?
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../index.html'))
-// })
+app.delete('/api', mealsController.deleteMeal, (req, res) => {
+  console.log('your data was deleted!');
+  return res.status(200).send(res.locals.meals);
+})
 
 //define route handlers  --  commented out because I am likely just going to use my server page to serve my routes
 // app.use('/', apiRouter);

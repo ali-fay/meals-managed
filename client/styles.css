@@ -1,0 +1,37 @@
+body {
+  background: rgb(212, 194, 230);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+input, button {
+  display: block;
+  margin: 0 auto;
+}
+
+input {
+  padding: 30px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 25px;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-size: 15px;
+  box-shadow: 5px 5px 5px rgb(148, 148, 148);
+  border: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(238, 177, 247);
+  transition: ease-in-out;
+}

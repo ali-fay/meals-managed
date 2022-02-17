@@ -1,9 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App.jsx';
-//import './styles.css';
+import './styles.css';
 
 render(
-  <App />,
+  <div>
+    <App />
+  </div>,
   document.getElementById('root')
 );
