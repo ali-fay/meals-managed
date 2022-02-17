@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const router = express.Router();
 //const apiRouter = require('./routes/api.js')     --might not use the routes folder/api.js
 const mealsController = require('./controllers/mealsController');
 const PORT = 3000;
@@ -11,8 +12,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //if i un-comment this, I do get 'hello there' on my 3000/ landing page
-app.get('/', (req, res) => {
-  return res.status(200).send('hello, there!');
+app.get('/', mealsController.getMeals, (req, res) => {
+  return res.status(200).send(res.locals.meals);
+})
+
+app.post('/', mealsController.addMeals, (req, res) => {
+  return res.status(200).send('your data was inserted!');
 })
 
 //handles requests for static files

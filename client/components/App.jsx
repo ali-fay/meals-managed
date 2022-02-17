@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-//import styles from '../styles.css';
+
+//import '../styles.css';
 
 class App extends Component {
   constructor(props) {
@@ -11,18 +12,23 @@ class App extends Component {
       <div className='App'>
         <h1>Meals Managed</h1>
         <h3>A place to curate your weekly meal plan with ease.</h3>
-        <input type='text' list='days' name='Day' id='day' />
-        <datalist id='days'>
-          <option value='Sunday' />
-          <option value='Monday' />
-          <option value='Tuesday' />
-          <option value='Wednesday' />
-          <option value='Thursday' />
-          <option value='Friday' />
-          <option value='Saturday' />
-        </datalist>
-        <input type='text' name='mealName' />
-        <button>Submit</button>
+        <div className='mealInputs'>
+          <label>Sunday</label>
+          <input type='text' name='day' id='sunday' />
+          {/* <label>Monday</label>
+          <input type='text' name='day' id='monday' />
+          <label>Tuesday</label>
+          <input type='text' name='day' id='tuesday' />
+          <label>Wednesday</label>
+          <input type='text' name='day' id='wednesday' />
+          <label>Thursday</label>
+          <input type='text' name='day' id='thursday' />
+          <label>Friday</label>
+          <input type='text' name='day' id='friday' />
+          <label>Saturday</label>
+          <input type='text' name='day' id='saturday' /> */}
+          <button>Submit</button>
+        </div>
       </div>
     );
   }
