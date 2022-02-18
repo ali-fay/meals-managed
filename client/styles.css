@@ -1,5 +1,7 @@
 body {
   background: rgb(212, 194, 230);
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: center;
